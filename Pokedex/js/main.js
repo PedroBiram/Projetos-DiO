@@ -1,6 +1,7 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 
+
 const maxRecords = 1080
 const limit = 25
 let offset = 0;
@@ -17,7 +18,8 @@ function convertPokemonToLi(pokemon) {
                 </ol>
 
                 <img src="${pokemon.photo}"
-                     alt="${pokemon.name}">
+                     alt="${pokemon.name}"> 
+
             </div>
         </li>
     `
@@ -45,3 +47,25 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+
+
+pokemonList.addEventListener("click", function(event) {
+    // Verifique se o elemento clicado é um <li>
+    if (event.target.tagName === 'LI') {
+        // Recupere o texto do item de lista clicado
+        var textoDoItem = event.target.textContent
+        
+        // Crie o link com base no texto do item (ou qualquer lógica desejada)
+        var link = "https://www.pokemon.com/br/pokedex/"
+        
+        // Redirecione o usuário para o link
+        window.location.href = link
+    }
+});
+
+
+
+
+
+
